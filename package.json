@@ -1,0 +1,19 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaveAGneissDay/liri-node-app.git"
+  },
+  "author": "David",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaveAGneissDay/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/HaveAGneissDay/liri-node-app#readme"
+}
