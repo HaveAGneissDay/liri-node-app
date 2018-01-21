@@ -18,6 +18,8 @@
   "homepage": "https://github.com/HaveAGneissDay/liri-node-app#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "geocoder": "^0.2.3",
+    "inquirer": "^5.0.1",
     "twitter": "^1.7.1"
   }
 }
