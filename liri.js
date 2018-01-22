@@ -1,5 +1,7 @@
 //Call keys.js
 
+var twitterKeys = require("./keys.js");
+
 //Call Twitter API
 
 // ex: node liri.js my-tweets should call up tweets
