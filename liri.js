@@ -1,6 +1,7 @@
 //Call keys.js
 
 var twitterKeys = require("./keys.js");
+var fs = require("fs");
 
 //Call Twitter API
 
