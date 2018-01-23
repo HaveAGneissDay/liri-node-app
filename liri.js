@@ -1,10 +1,44 @@
-//Call keys.js
-
-var twitterKeys = require("./keys.js");
+//requirements 
 var fs = require("fs");
+var spotify = require("spotify");
+var twitter = require("twitter");
+var request = require("request");
 
+//Extra Requirements
+
+var inquirer = require("inquirer");
+var geocoder = require("geocoder");
+
+//Call keys.js
+var twitterKeys = require("./keys.js");
+
+// The command to input after node liri.js 
+
+var command = process.argv[2];
+var query = process.argv[3];
 //Call Twitter API
+if (command === "my-tweets") {
+    console.log("here are my tweets");
+} else if (command === "spotify-this-song") {
+    console.log("spotify this song");
+} else if (command === "movie-this") {
+    console.log("looking up the movie");
+}
 
+
+// switch (command) {
+//     case 'my-tweets':
+//         console.log("here are my tweets");
+//         break;
+//     case 'spotify-this-song':
+//         console.log("spotify this song");
+//         break;
+//     case 'movie-this':
+//         console.log("looking up the movie");
+//         break;
+//     default:
+//         console.log("I don't understand that, please try again");
+// }
 // ex: node liri.js my-tweets should call up tweets
 
 //Call Spotify API
