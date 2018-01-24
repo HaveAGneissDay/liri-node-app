@@ -4,7 +4,10 @@ var spotify = require("spotify");
 var twitter = require("twitter");
 var request = require("request");
 
-//Extra Requirements
+// Calling Keys
+var twitterKeys = require("./keys.js");
+var spotifykeys = require("./keys.js");
+//Extra Stuff
 
 var inquirer = require("inquirer");
 var geocoder = require("geocoder");
@@ -12,7 +15,7 @@ var geocoder = require("geocoder");
 //Call keys.js
 var twitterKeys = require("./keys.js");
 
-// The command to input after node liri.js 
+// The input after node liri.js 
 
 var command = process.argv[2];
 var query = process.argv[3];
@@ -20,7 +23,7 @@ var query = process.argv[3];
 if (command === "my-tweets") {
     console.log("here are my tweets");
 } else if (command === "spotify-this-song") {
-    console.log("spotify this song");
+    console.log("here is this song");
 } else if (command === "movie-this") {
     console.log("looking up the movie");
 }
@@ -31,7 +34,7 @@ if (command === "my-tweets") {
 //         console.log("here are my tweets");
 //         break;
 //     case 'spotify-this-song':
-//         console.log("spotify this song");
+//         console.log("here is this song");
 //         break;
 //     case 'movie-this':
 //         console.log("looking up the movie");
