@@ -17,8 +17,19 @@ var keys = require("./keys.js");
 
 // The input after node liri.js 
 
-var command = process.argv[2];
-var query = process.argv[3];
+var liriArguments = process.argv;
+
+var command = liriArguments[2];
+
+var query = '';
+
+for (var i = 3; i < liriArguments.length; i++) {
+    if( i > 3 && i < liriArguments.length) {
+    query = query + '+' + liriArguments[i];
+  } else {
+      query += liriArguments[i];
+  }
+}
 
 // if (command === "my-tweets") {
 //     console.log("here are my tweets");
@@ -71,22 +82,37 @@ function myTweets() {
 
 // ex: node liri.js spotify-this-song '<song name here>'
 function findSongInfo() {
+    var song = '';
     if (query === '') {
-        query = 'The Sign Ace of Base';
+        song = 'The Sign Ace of Base';
     } else {
-        query = query;
+        song = query;
     }
-    spotify.search({ type: 'track', query: query}, function (err, data) {
+    spotify.search({ type: 'track', query: song}, function (err, data) {
         if (err) {
             console.log('Error occurred: ' + err);
             return;
         }
-         console.log(data)
+         console.log(data.name + data.artists[0].name)
     });
 }
 //Call a Movie API
 
 // ex: node liri.js movie-this '<movie name here>'
 function findMovieInfo() {
+    var movieName = '';
+    if (query === '') {
+        movieName = 'Mr. Nobody';
+    } else {
+        movieName =  query;
+    }
+    console.log(movieName)
+ 
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
+    request(queryUrl, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
 
+            console.log(JSON.parse(body));
+        }
+    });
 }
