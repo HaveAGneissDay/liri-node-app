@@ -72,9 +72,20 @@ function myTweets() {
                 })
             }
             console.log(data);
+            fs.appendFile('log.txt', + data, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+    
         }
         else {
-            console.log("Error, " + data);
+            console.log("Error, " + error);
+            fs.appendFile('log.txt', + liriArguments + error, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
         }
     });
 }
@@ -91,9 +102,22 @@ function findSongInfo() {
     spotify.search({ type: 'track', query: song}, function (err, data) {
         if (err) {
             console.log('Error occurred: ' + err);
+            fs.appendFile('log.txt', + liriArguments + err, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
             return;
+        } else {
+            fs.appendFile('log.txt', + liriArguments + data, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+            var result = "Name of the song: " + data.name +'\n' + "Artist: " + data.artist;
+            console.log(result)
         }
-         console.log(data.name + data.artists[0].name)
+
     });
 }
 //Call a Movie API
@@ -111,8 +135,20 @@ function findMovieInfo() {
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
     request(queryUrl, function (error, response, body) {
         if (!error && response.statusCode === 200) {
-
-            console.log(JSON.parse(body));
+            var result = JSON.parse(body)
+            console.log(result);
+            fs.appendFile('log.txt', + liriArguments + result, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+            console.log("Error : " + error);
+            fs.appendFile('log.txt', + liriArguments + error, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            });
         }
     });
 }
