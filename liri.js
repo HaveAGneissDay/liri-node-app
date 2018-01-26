@@ -93,7 +93,7 @@ function myTweets() {
 function findSongInfo() {
     var song = '';
     if (query === '') {
-        song = 'The Sign Ace of Base';
+        song = 'The Sign';
     } else {
         song = query;
     }
