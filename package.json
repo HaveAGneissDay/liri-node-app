@@ -20,8 +20,8 @@
     "dotenv": "^4.0.0",
     "geocoder": "^0.2.3",
     "inquirer": "^5.0.1",
+    "node-spotify-api": "^1.0.7",
     "request": "^2.83.0",
-    "spotify": "^0.3.0",
     "twitter": "^1.7.1"
   }
 }

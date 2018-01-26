@@ -2,7 +2,7 @@
 
 //requirements 
 var fs = require("fs");
-var spotify = require("spotify");
+var spotify = require("node-spotify-api");
 var twitter = require("twitter");
 var request = require("request");
 
@@ -94,6 +94,7 @@ function myTweets() {
 
 // ex: node liri.js spotify-this-song '<song name here>'
 function findSongInfo() {
+    var spotify = spotify(keys.spotifyKeys);
     var song = '';
     if (query === '') {
         song = 'The Sign';
@@ -158,9 +159,12 @@ function findMovieInfo() {
 //Do what the read file says 
 
 function doWhatItSays() {
-    fs.readFile('random.txt', function (err) {
+    fs.readFile('random.txt','utf8', function (err, data) {
         if (err) {
             console.log(err);
         }
-    })
+        var dataArray = data.split(',');
+        dataArray[0] = command;
+        console.log(dataArray)
+    });
 }
