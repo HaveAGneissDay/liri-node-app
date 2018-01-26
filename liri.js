@@ -165,7 +165,6 @@ function doWhatItSays() {
             console.log(err);
         }
         var dataArray = data.split(',');
-        dataArray[0] = command;
-        console.log(dataArray)
+        findSongInfo(dataArray[i]);
     });
 }
