@@ -48,6 +48,9 @@ switch (command) {
     case 'movie-this': findMovieInfo();
         console.log("looking up the movie");
         break;
+    case 'do-what-it-says': doWhatItSays();
+        console.log("following instructions");
+        break;
     default:
         console.log("I don't understand that, please try again");
 }
@@ -98,6 +101,7 @@ function findSongInfo() {
         song = query;
     }
     spotify.search({ type: 'track', query: song}, function (err, data) {
+        console.log(data)
         if (err) {
             console.log('Error occurred: ' + err);
             fs.appendFile('log.txt', + liriArguments + err, function (err) {
@@ -149,4 +153,14 @@ function findMovieInfo() {
             });
         }
     });
+}
+
+//Do what the read file says 
+
+function doWhatItSays() {
+    fs.readFile('random.txt', function (err) {
+        if (err) {
+            console.log(err);
+        }
+    })
 }
