@@ -62,11 +62,11 @@ function myTweets() {
         console.log(tweets)
         if (!error) {
             var data = [];
-            console.log(tweets.tweet);
+            // console.log(tweets.tweet);
             for (var i = 0; i < tweets.length; i++) {
                 data.push({
-                    'date created': tweets[i].created_at,
-                    'Tweets' : tweets[i].text
+                    datecreated: tweets[i].created_at,
+                    Tweets : tweets[i].text
                 })
             }
             console.log(data);
