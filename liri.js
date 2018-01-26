@@ -24,11 +24,9 @@ var command = liriArguments[2];
 var query = '';
 
 for (var i = 3; i < liriArguments.length; i++) {
-    if( i > 3 && i < liriArguments.length) {
-    query = query + '+' + liriArguments[i];
-  } else {
-      query += liriArguments[i];
-  }
+
+      query += liriArguments[i] + ' ';
+
 }
 
 // if (command === "my-tweets") {
@@ -114,7 +112,7 @@ function findSongInfo() {
                     console.log(err);
                 }
             });
-            var result = "Name of the song: " + data.name +'\n' + "Artist: " + data.artist;
+            var result = "Name of the song: " + data.name +'\n' + "Artist: " + data.artists;
             console.log(result)
         }
 
