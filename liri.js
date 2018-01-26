@@ -2,7 +2,7 @@
 
 //requirements 
 var fs = require("fs");
-var spotify = require("node-spotify-api");
+var Spotify = require("node-spotify-api");
 var twitter = require("twitter");
 var request = require("request");
 
@@ -91,13 +91,15 @@ function myTweets() {
     });
 }
 //Call Spotify API
-
+console.log(keys.spotifyKeys)
 // ex: node liri.js spotify-this-song '<song name here>'
 function findSongInfo() {
-    var spotify = spotify(keys.spotifyKeys);
+ 
+    var spotify = new Spotify(keys.spotifyKeys);
+
     var song = '';
     if (query === '') {
-        song = 'The Sign';
+        song = 'The Sign Ace of Base';
     } else {
         song = query;
     }
@@ -112,12 +114,11 @@ function findSongInfo() {
             });
             return;
         } else {
-            fs.appendFile('log.txt', + liriArguments + data, function (err) {
-                if (err) {
-                    console.log(err);
-                }
+            console.log(data.name)
+            fs.appendFile('log.txt', + liriArguments + data.tracks.items[i].name, function (err) {
+
             });
-            var result = "Name of the song: " + data.name +'\n' + "Artist: " + data.artists;
+            var result = "Name of the song: " + data.tracks.items[i].name + '\n' + "Artist: " + data.tracks.items[0].artist.name;
             console.log(result)
         }
 
