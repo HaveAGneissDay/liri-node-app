@@ -15,3 +15,9 @@ git clone liri-node-app
 npm install
 node liri-node-app <command> <query>
 ```
+# List of Command
+
+`my-tweets`  
+`spotify-this-song`  
+`movie-this`  
+`do-what-it-says`  
